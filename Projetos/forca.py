@@ -1,11 +1,23 @@
+import random
 def play():
 
     print("*********************************")
     print("***Bem vindo ao jogo da Forca!***")
     print("*********************************")
 
-    secret_word = "morango".upper()
-    word_true = ["_", "_", "_", "_", "_", "_", "_"]
+    archive = open("palavras.txt", "r", encoding="utf-8")
+    word = []
+
+    for line in archive:
+        line = line.strip()
+        word.append(line)
+
+    archive.close()
+
+    number = random.randrange(0, len(word))
+    secret_word = word[number].upper()
+
+    word_true = ["_" for letter in secret_word]
 
     wrong = False
     right = False
