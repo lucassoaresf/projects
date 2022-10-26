@@ -6,46 +6,46 @@ def play():
     print("Bem vindo ao jogo de Adivinhação!")
     print("*********************************")
 
-    numero_secreto = random.randrange(1, 31)
-    tentativas = 0
-    pontos = 1000
+    secret_number = random.randrange(1, 31)
+    chance = 0
+    points = 1000
 
     print("Qual nível de dificuldade?")
     print("(1) - Fácil\n"
           "(2) - Médio\n"
           "(3) - Difícil")
 
-    nivel = int(input("Selecione o nível: "))
+    level = int(input("Selecione o nível: "))
 
-    if nivel == 1:
-        tentativas = 15
-    elif nivel == 2:
-        tentativas = 10
+    if level == 1:
+        chance = 15
+    elif level == 2:
+        chance = 10
     else:
-        tentativas = 5
+        chance = 5
 
-    for rodada in range(1, tentativas + 1):
-        print(f"Tentativa {rodada} de {tentativas}!!!")
+    for round in range(1, chance + 1):
+        print(f"Tentativa {round} de {chance}!!!")
 
-        chute = int(input("Digite um número entre 1 e 30: "))
-        print(f"Você digitou o número {chute}")
+        attempt = int(input("Digite um número entre 1 e 30: "))
+        print(f"Você digitou o número {attempt}")
 
-        if chute < 1 or chute > 100:
+        if attempt < 1 or attempt > 30:
             print("Você deve digitar um número entre 1 e 30.")
             continue
 
-        if numero_secreto == chute:
-            print(f"Você acertou e acabou com {pontos} pontos!!!")
+        if secret_number == attempt:
+            print(f"Você acertou e acabou com {points} pontos!!!")
             break
-        elif chute > numero_secreto:
+        elif attempt > secret_number:
             print("Você errou, seu número foi maior que o número secreto.")
-        elif chute < numero_secreto:
+        elif attempt < secret_number:
             print("Você errou, seu número foi menor que o número secreto.")
-        lost = abs(numero_secreto - chute)
-        pontos = pontos - lost
+        lost = abs(secret_number - attempt)
+        points = points - lost
 
     print("Fim de jogo!!!")
 
 
 if __name__ == "__main__":
-    jogar()
+    play()
