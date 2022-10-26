@@ -11,7 +11,9 @@ def play():
     pontos = 1000
 
     print("Qual nível de dificuldade?")
-    print("(1) Fácil (2) Médio (3) Difícil")
+    print("(1) - Fácil\n"
+          "(2) - Médio\n"
+          "(3) - Difícil")
 
     nivel = int(input("Selecione o nível: "))
 
