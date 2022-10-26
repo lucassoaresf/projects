@@ -2,3 +2,12 @@ banana
 uva
 manga
 morango
+laranja
+mamão
+maçã
+pitanga
+melância
+melão
+kiwi
+jabuticaba
+graviola

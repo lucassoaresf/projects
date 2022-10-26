@@ -1,29 +1,18 @@
 import random
+
 def play():
 
-    print("*********************************")
-    print("***Bem vindo ao jogo da Forca!***")
-    print("*********************************")
+    opening_message()
+    secret_word = loading_word()
 
-    archive = open("palavras.txt", "r", encoding="utf-8")
-    word = []
-
-    for line in archive:
-        line = line.strip()
-        word.append(line)
-
-    archive.close()
-
-    number = random.randrange(0, len(word))
-    secret_word = word[number].upper()
-
-    word_true = ["_" for letter in secret_word]
-
+    word_true = ["_" for letter in secret_word] #Acrescenta um _ a cada letra da palavra secreta.
+    print(word_true)
+    
     wrong = False
     right = False
     error = 0
 
-    print(word_true)
+
 
     while not right and not wrong:
 
@@ -38,12 +27,9 @@ def play():
                 index += 1
         else:
             error += 1
-            print(f"Você errou! faltam {7-error} tentativas.")
 
-        if error == 7:
-            break
-        if "_" not in word_true:
-            break
+        wrong = error == 7
+        right = "_" not in word_true
         print(word_true)
 
     if(right):
@@ -51,6 +37,27 @@ def play():
     else:
         print("Não foi dessa vez que você conseguiu :(")
     print("Fim de jogo!!!")
+
+
+def opening_message():
+    print("*********************************")
+    print("***Bem vindo ao jogo da Forca!***")
+    print("*********************************")
+
+def loading_word(): #É utilizado um aquivo txt, com leituras por linha como palavras secretas.
+    archive = open("palavras.txt", "r", encoding="utf-8")
+    word = []
+
+    for line in archive:
+        line = line.strip()
+        word.append(line)
+
+    archive.close()
+
+    number = random.randrange(0, len(word))
+    secret_word = word[number].upper()
+    return secret_word
+
 
 if __name__ == "__main__":
     play()
