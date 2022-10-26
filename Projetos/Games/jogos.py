@@ -1,5 +1,5 @@
-import forca
-import adivinhacao
+from Projetos.Games import adivinhacao, forca
+
 
 def choose_game():
     print("*********************************")
