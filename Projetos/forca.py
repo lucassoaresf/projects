@@ -7,7 +7,7 @@ def play():
 
     word_true = ["_" for letter in secret_word] #Acrescenta um _ a cada letra da palavra secreta.
     print(word_true)
-    
+
     wrong = False
     right = False
     error = 0
@@ -35,7 +35,7 @@ def play():
     if(right):
         print("Parabéns você acertou a palavra secreta!!!")
     else:
-        print("Não foi dessa vez que você conseguiu :(")
+        print(f"Não foi dessa vez que você conseguiu, a palavra secreta era {secret_word}")
     print("Fim de jogo!!!")
 
 
