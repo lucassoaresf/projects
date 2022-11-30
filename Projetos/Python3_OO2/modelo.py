@@ -20,8 +20,8 @@ class Programa:
     def nome(self, new_name):
         self._nome = new_name.title()
 
-    def imprimir(self):
-        print(f'{self._nome} - {self.ano} - {self._likes} Likes')
+    def __str__(self):
+        return f'{self._nome} - {self.ano} - {self._likes} Likes'
 
 class Filmes(Programa):
 
@@ -29,8 +29,8 @@ class Filmes(Programa):
         super().__init__(nome, ano)
         self.duracao = duracao
 
-    def imprimir(self):
-        print(f'{self._nome} - {self.ano} - {self.duracao} minutos - {self._likes} Likes')
+    def __str__(self):
+       return  f'{self._nome} - {self.ano} - {self.duracao} minutos - {self._likes} Likes'
 
 class Serie(Programa):
 
@@ -38,8 +38,8 @@ class Serie(Programa):
         super().__init__(nome, ano)
         self.temporadas = temporadas
 
-    def imprimir(self):
-        print(f'{self._nome} - {self.ano} - {self.temporadas} temporadas - {self._likes} Likes')
+    def __str__(self):
+        return f'{self._nome} - {self.ano} - {self.temporadas} temporadas - {self._likes} Likes'
 
 
 vingadores = Filmes('vingadores: ultimato', 2019, 180)
@@ -53,5 +53,5 @@ b99.dar_like()
 filmes_e_series = [vingadores, b99]
 
 for programa in filmes_e_series:
-    programa.imprimir()
+    print(programa)
 
