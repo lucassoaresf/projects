@@ -23,6 +23,7 @@ class Programa:
     def __str__(self):
         return f'{self._nome} - {self.ano} - {self._likes} Likes'
 
+
 class Filmes(Programa):
 
     def __init__(self, nome, ano, duracao):
@@ -30,7 +31,8 @@ class Filmes(Programa):
         self.duracao = duracao
 
     def __str__(self):
-       return  f'{self._nome} - {self.ano} - {self.duracao} minutos - {self._likes} Likes'
+        return f'{self._nome} - {self.ano} - {self.duracao} minutos - {self._likes} Likes'
+
 
 class Serie(Programa):
 
@@ -42,16 +44,40 @@ class Serie(Programa):
         return f'{self._nome} - {self.ano} - {self.temporadas} temporadas - {self._likes} Likes'
 
 
+class Playlist(list):
+    def __init__(self, nome, programas):
+        self.nome = nome
+        self._programas = programas
+
+    @property
+    def listagem(self):
+        return self._programas
+
+    @property
+    def tamanho(self):
+        return len(self._programas)
+
+
 vingadores = Filmes('vingadores: ultimato', 2019, 180)
-vingadores.dar_like()
-
 b99 = Serie('b99', 2013, 8)
+avatar = Filmes('avatar', 2022, 180)
+hotd = Serie('House of the Dragon', 2022, 1)
+
+vingadores.dar_like()
+vingadores.dar_like()
+vingadores.dar_like()
+avatar.dar_like()
+avatar.dar_like()
+avatar.dar_like()
+avatar.dar_like()
 b99.dar_like()
 b99.dar_like()
+hotd.dar_like()
 
+filmes_e_series = [vingadores, b99, hotd, avatar]
+fds = Playlist('fim de semana', filmes_e_series)
 
-filmes_e_series = [vingadores, b99]
+print(f'Tamanho da Playlist: {len(fds.listagem)}')
 
-for programa in filmes_e_series:
+for programa in fds.listagem:
     print(programa)
-
